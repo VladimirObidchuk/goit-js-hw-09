@@ -1,30 +1,62 @@
-<section class="hero">
-  <div class="container">
-    <h2 class="title">Gallery</h2>
-    <ul class="gallery"></ul>
-  </div>
-</section>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page 2</title>
-    <script type="module" crossorigin src="/goit-js-hw-09/assets/styles-7B2vHFRm.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-09/assets/vendor-CgTBfC_f.js"></script>
-    <script type="module" crossorigin src="/goit-js-hw-09/assets/1-gallery-DSxFCKtQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/styles-9FqOSHMV.css">
+    <title>Gallery</title>
+    <script type="module" crossorigin src="/goit-js-hw-09/1-gallery.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/modulepreload-polyfill-B5Qt9EMX.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/vendor-CgTBfC_f.js">
     <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/vendor-DkczhqSJ.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/styles-C66byv8w.css">
   </head>
   <body>
+    <header class="header">
+  <div class="container">
+    <nav class="nav">
+      <a class="nav-logo" href="./index.html" aria-label="Site logo">
+        <svg class="nav-logo-icon" width="100" height="30">
+          <use href="/goit-js-hw-09/assets/sprite-E8vg0sBb.svg#logo"></use>
+        </svg>
+      </a>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link active" href="./1-gallery.html"
+            >Gallery</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {=$highlight-curr}" href="./2-form.html">Form</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
     <main>
-      <section class="hero">
+      <div class="hero">
         <div class="container">
           <h2 class="title">Gallery</h2>
           <ul class="gallery"></ul>
         </div>
-      </section>
+      </div>
     </main>
+    <footer class="footer">
+  <div class="container">
+    <p class="footer-desc">
+      Made with ✨ by
+      <a
+        class="footer-link"
+        href="https://goit.global/ua/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GoIT team
+      </a>
+    </p>
+  </div>
+</footer>
+
   </body>
 </html>
