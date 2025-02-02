@@ -19,13 +19,14 @@
 body {
   display: flex;
   flex-direction: column;
-  /* min-width: 100vw; */
+  align-items: center;
   min-height: 100vh;
-  margin: 0;
+  margin: 0 auto;
 }
 
 main {
   flex-grow: 1;
+  transition: 0.3 cubic-bezier();
 }
 main:has(.back-link) {
   text-align: center;

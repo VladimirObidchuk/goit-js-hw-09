@@ -1,4 +1,5 @@
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const images = [
   {
@@ -92,8 +93,6 @@ const galleryStyle = {
 };
 const lightboxStyle = {
   simpleLightbox: {
-    width: '100%',
-    height: '100%',
     position: 'absolute',
     backgroundColor: '#000000cc',
     display: 'flex',
@@ -147,6 +146,9 @@ galleruInner.insertAdjacentHTML('beforeend', createGallery(images));
 const galleryInner = new SimpleLightbox('.gallery a', {
   animationSpeed: 300,
   animationSlide: true,
+  captionDelay: 250,
+  overlay: true,
+  overlayOpacity: 0.8,
 });
 
 function initializeStyle() {
@@ -155,8 +157,6 @@ function initializeStyle() {
   const galleryItems = document.querySelectorAll('.gallery__item');
   if (!galleryInner) return;
   galleryItems.forEach(item => {
-    const firstChild = item.firstElementChild;
-
     Object.assign(item.style, galleryStyle.gallery);
     item.addEventListener('mouseover', () => {
       item.style.transform = 'scale(1.05)';
@@ -176,11 +176,8 @@ galleryInner.on('shown.simplelightbox', () => {
   const lightboxContainer = document.querySelector('.simple-lightbox');
   const slClouse = lightboxContainer.firstElementChild;
   if (!lightboxContainer) return;
-  const slNavigation = document.querySelector('.sl-navigation');
   const slNavigationBtn = document.querySelectorAll('.sl-navigation button');
-  console.log('slNavigationBtn', slNavigationBtn);
   const slCounter = document.querySelector('.sl-counter');
-  console.log('slCounter', slCounter);
   Object.assign(lightboxContainer.style, lightboxStyle.simpleLightbox);
   Object.assign(slClouse.style, lightboxStyle.slClouse);
   slNavigationBtn.forEach(item => {
