@@ -66,39 +66,8 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
-const galleryStyle = {
-  hero: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-    padding: '100px 0',
-  },
-  gallery: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: '24px',
-    listStyle: 'none',
-    justifyContent: 'center',
-  },
-  galleryImage: {
-    width: '100%',
-    heigth: '100%',
-  },
-  title: {
-    textAlign: 'center',
-    fontSize: '48px',
-  },
-};
+
 const lightboxStyle = {
-  simpleLightbox: {
-    position: 'absolute',
-    backgroundColor: '#000000cc',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   slClouse: {
     position: 'absolute',
     right: '16px',
@@ -114,15 +83,10 @@ const lightboxStyle = {
     color: 'white',
     fontSize: '30px',
   },
-  slPrev: { position: 'absolute', left: '16px' },
-  slNext: { position: 'absolute', right: '16px' },
   slCaption: {
     color: 'wite',
   },
   slCounter: {
-    position: 'absolute',
-    left: '16px',
-    top: '16px',
     fontWeight: '400',
     fontsize: '16px',
     lineheight: '1.5',
@@ -135,9 +99,11 @@ const galleruInner = document.querySelector('.gallery');
 const createGallery = images => {
   return images
     .map(({ preview, original, description }) => {
-      return `<a href="${original}" class="gallery__item">
+      return `<li class="gallery-item">
+      <a href="${original}" class="gallery__item">
         <img src="${preview}" alt="${description}" data-source="${original}" title="${description}" height="200" width="360"/>
-      </a>`;
+      </a>
+      </li>`;
     })
     .join('');
 };
@@ -151,34 +117,13 @@ const galleryInner = new SimpleLightbox('.gallery a', {
   overlayOpacity: 0.8,
 });
 
-function initializeStyle() {
-  const hero = document.querySelector('.hero');
-  const title = document.querySelectorAll('.title');
-  const galleryItems = document.querySelectorAll('.gallery__item');
-  if (!galleryInner) return;
-  galleryItems.forEach(item => {
-    Object.assign(item.style, galleryStyle.gallery);
-    item.addEventListener('mouseover', () => {
-      item.style.transform = 'scale(1.05)';
-    });
-
-    item.addEventListener('mouseout', () => {
-      item.style.transform = 'scale(1)';
-    });
-  });
-  Object.assign(hero.style, galleryStyle.hero);
-  Object.assign(galleruInner.style, galleryStyle.gallery);
-  title.forEach(item => {
-    Object.assign(item.style, galleryStyle.title);
-  });
-}
 galleryInner.on('shown.simplelightbox', () => {
   const lightboxContainer = document.querySelector('.simple-lightbox');
   const slClouse = lightboxContainer.firstElementChild;
   if (!lightboxContainer) return;
   const slNavigationBtn = document.querySelectorAll('.sl-navigation button');
   const slCounter = document.querySelector('.sl-counter');
-  Object.assign(lightboxContainer.style, lightboxStyle.simpleLightbox);
+
   Object.assign(slClouse.style, lightboxStyle.slClouse);
   slNavigationBtn.forEach(item => {
     Object.assign(item.style, lightboxStyle.slNavigationBtn);
@@ -190,6 +135,4 @@ galleryInner.on('shown.simplelightbox', () => {
       : null;
   });
   Object.assign(slCounter.style, lightboxStyle.slCounter);
-  initializeStyle();
 });
-initializeStyle();
