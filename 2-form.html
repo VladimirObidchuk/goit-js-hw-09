@@ -7,7 +7,7 @@
     <title>Form</title>
     <script type="module" crossorigin src="/goit-js-hw-09/2-form.js"></script>
     <link rel="modulepreload" crossorigin href="/goit-js-hw-09/assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/styles-C66byv8w.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-09/assets/styles-DZzvrceV.css">
   </head>
   <body>
     <header class="header">
@@ -40,6 +40,7 @@
             <label class="form__label">
               Email
               <input
+                class="form__input"
                 type="email"
                 id="email"
                 name="email"
@@ -49,7 +50,12 @@
             </label>
             <label class="form__label">
               Message
-              <textarea id="textarea" name="message" rows="8"></textarea>
+              <textarea
+                id="textarea"
+                class="form__textarea t"
+                name="message"
+                rows="8"
+              ></textarea>
             </label>
             <button type="submit" class="form__btn">Submit</button>
           </form>
